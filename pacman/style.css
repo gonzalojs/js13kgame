@@ -1,3 +1,24 @@
-* {
+/* * {
   outline: 1px dotted purple;
+} */
+
+div {
+  width: 50px;
+  height: 50px;
+  margin: -2px;
+}
+
+.pacman {
+  background-image: url('/assets/pacman.png');
+  display: inline-block;
+}
+
+.wall {
+  background-image: url('/assets/wall.png');
+  display: inline-block;
+}
+
+.coin {
+  background-image: url('/assets/coin.png');
+  display: inline-block;
 }
