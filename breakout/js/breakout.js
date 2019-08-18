@@ -95,8 +95,17 @@ function moveBall () {
 //ball and paddle collision
 function ballPaddleCollision () {
   if (ball.x < paddle.x + paddle.width && ball.x > paddle.x && paddle.y < paddle.y + paddle.height && ball.y > paddle.y) {
-    ball.dx = - ball.dx
-    ball.dy = - ball.dy
+
+    //check where the ball hit the paddle
+    let collidePoint = ball.x - (paddle.x + paddle.width/2)
+    //normalize the values
+    collidePoint = collidePoint / (paddle.width/2)
+    //calculate the angle of the ball
+    let angle = collidePoint * Math.PI/3
+
+
+    ball.dx = ball.speed * Math.sin(angle)
+    ball.dy = - ball.speed * Math.cos(angle)
   }
 }
 
@@ -136,6 +145,7 @@ function update () {
   movePaddle()
   moveBall()
   ballWallCollision()
+  ballPaddleCollision()
 }
 
 function loop () {
